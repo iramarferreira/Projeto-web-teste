@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+  	xmlns:f="http://java.sun.com/jsf/core"
+  	xmlns:h="http://java.sun.com/jsf/html"
+  	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Cadastrar Aluno</title>
+		<h:outputStylesheet library="css" name="estilos.css"/>
+	</h:head>
+	
+	<body>	
+		
+		
+		<h:form>
+			<p:panel id="panel" header="Cadastro de Cliente" >
+		        
+		        <h:panelGrid columns="3" cellpadding="5" styleClass="form-grid" >
+		        
+		        	<p:outputLabel for="id" value="ID:" />
+		            <p:inputText id="id"  
+		            	validatorMessage="Digite o CPF com 11 caracteres" label="id" 
+		            	value="#{clienteController.cliente.id}"  >
+		            </p:inputText>
+		            <p:message for="id"    />
+		        
+		            <p:outputLabel for="cpf" value="CPF:" />
+		            <p:inputMask id="cpf" 
+		            	validatorMessage="Digite o CPF com 11 caracteres" label="CPF" 
+		            	value="#{clienteController.cliente.cpf}" mask="999.999.999-99" >
+		            </p:inputMask>
+		            <p:message for="cpf"    />
+		 
+		 			<p:outputLabel for="rg" value="RG:" />
+		 			<p:inputMask id="rg"  
+		            	validatorMessage="Digite o RG com 7 caracteres" label="RG" 
+		            	value="#{clienteController.cliente.rg}" mask="9.999.999">
+		            </p:inputMask>
+		            <p:message for="rg"    />
+		            
+		            <p:outputLabel for="nome" value="Nome:" />
+		 			<p:inputText id="nome"  
+		            	validatorMessage="Digite o nome com no mínimo 3 caracteres" 
+		            	label="Nome" value="#{clienteController.cliente.nome}">
+		                <f:validateLength minimum="3"  />
+		            </p:inputText>
+		            <p:message for="nome"    />
+		            
+		            
+		        </h:panelGrid>
+		 
+		        <h:commandButton value="Salvar" action="#{clienteController.adiciona()}" icon="ui-icon-disk" update="@form" />
+		        
+		     
+			</p:panel>
+			
+			
+		
+		</h:form>
+		
+	
+	</body>
+	
+</html>
